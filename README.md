@@ -11,8 +11,8 @@ To set up the project on your local machine, follow these steps:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/Vrana710/best-buy2.0.git 
-   cd best-buy2.0
+   git clone https://github.com/Vrana710/Best-Buy2.0.git 
+   cd Best-Buy2.0
    ```
 
 2. **Create a virtual environment:**
