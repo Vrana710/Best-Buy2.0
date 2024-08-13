@@ -9,6 +9,7 @@ class Store:
         product_list (list): A list of Product objects available in the store.
     """
 
+
     def __init__(self, product_list: list):
         """
         Constructs all the necessary attributes for the store object.
@@ -17,6 +18,7 @@ class Store:
             product_list (list): A list of Product objects available in the store.
         """
         self.product_list = product_list
+
 
     def add_product(self, product: Product):
         """
@@ -27,6 +29,7 @@ class Store:
         """
         self.product_list.append(product)
 
+
     def remove_product(self, product: Product):
         """
         Removes a product from the store's inventory.
@@ -36,6 +39,7 @@ class Store:
         """
         self.product_list.remove(product)
 
+
     def get_total_quantity(self) -> int:
         """
         Calculates the total quantity of all products in the store.
@@ -44,6 +48,7 @@ class Store:
             int: The total quantity of all products in the store.
         """
         return sum(product.quantity for product in self.product_list if product.is_active())
+
 
     def get_all_products(self) -> list:
         """

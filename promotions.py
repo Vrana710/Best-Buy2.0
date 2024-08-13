@@ -12,10 +12,12 @@ class Promotion:
         """
         self._name = name
 
+
     @property
     def name(self) -> str:
         """Returns the name of the promotion."""
         return self._name
+
 
     def apply_promotion(self, product, quantity: int) -> float:
         """
@@ -57,6 +59,7 @@ class ThirdOneFree(Promotion):
     A promotion where the third item is free.
     """
 
+
     def apply_promotion(self, product, quantity: int) -> float:
         """
         Applies the third one free promotion to the product for a given quantity.
@@ -77,6 +80,7 @@ class PercentDiscount(Promotion):
     A promotion with a percentage discount.
     """
 
+
     def __init__(self, name: str, percent: float):
         """
         Constructs all the necessary attributes for the percentage discount promotion object.
@@ -87,6 +91,7 @@ class PercentDiscount(Promotion):
         """
         super().__init__(name)
         self._percent = percent
+
 
     def apply_promotion(self, product, quantity: int) -> float:
         """
