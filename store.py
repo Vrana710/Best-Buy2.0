@@ -9,7 +9,6 @@ class Store:
         product_list (list): A list of Product objects available in the store.
     """
 
-
     def __init__(self, product_list: list):
         """
         Constructs all the necessary attributes for the store object.
@@ -18,7 +17,6 @@ class Store:
             product_list (list): A list of Product objects available in the store.
         """
         self.product_list = product_list
-
 
     def add_product(self, product: Product):
         """
@@ -29,7 +27,6 @@ class Store:
         """
         self.product_list.append(product)
 
-
     def remove_product(self, product: Product):
         """
         Removes a product from the store's inventory.
@@ -39,40 +36,38 @@ class Store:
         """
         self.product_list.remove(product)
 
-
     def get_total_quantity(self) -> int:
         """
-        Calculates the total quantity of all products in the store.
+        Returns the total quantity of all active products in the store.
 
         Returns:
-            int: The total quantity of all products in the store.
+            int: Total quantity of active products.
         """
         return sum(product.quantity for product in self.product_list if product.is_active())
 
-
     def get_all_products(self) -> list:
         """
-        Retrieves a list of all active products in the store.
+        Returns a list of all active products in the store.
 
         Returns:
-            list: A list of active Product objects in the store.
+            list: A list of active Product objects.
         """
         return [product for product in self.product_list if product.is_active()]
 
     def order(self, shopping_list: list) -> float:
         """
-        Processes an order from the shopping list, updating quantities and calculating total cost.
+        Processes an order and returns the total price.
 
         Args:
-            shopping_list (list): A list of tuples, where each tuple contains a Product object and a quantity.
+            shopping_list (list): A list of tuples containing products and quantities to purchase.
 
         Returns:
-            float: The total cost of the order.
-
-        Raises:
-            ValueError: If any product in the order has insufficient quantity.
+            float: Total price of the order.
         """
-        total_cost = 0
+        total_price = 0
         for product, quantity in shopping_list:
-            total_cost += product.buy(quantity)
-        return total_cost
+            try:
+                total_price += product.buy(quantity)
+            except ValueError as e:
+                print(f"Could not process order for {product.name}: {e}")
+        return total_price
